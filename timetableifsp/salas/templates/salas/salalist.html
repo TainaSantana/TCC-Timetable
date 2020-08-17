@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tela de cadastro de salas</h1>
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Bloco</th>
+        <th scope="col">Status</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    
+    {% for salas in salas_list %}
+    <tbody>
+    
+      <tr>
+        <th scope="row">{{ salas.nome }}</th>
+        <td>{{ salas.bloco }}</td>
+        <td>{{ salas.status }}</td>
+        <td><a href="editasala/{{salas.id}}"><i class="fas fa-edit"></i></a> <a href="exibesala/{{salas.id}}" class="delete-btn"><i class="fas fa-eye"></a></i> <a href="delete/{{salas.id}}" class="delete-btn"><i class="fas fa-trash-alt"></i></a> </td>
+        
+      </tr>
+    
+    
+    </tbody>
+    {% endfor %}
+    
+  </table>
+ 
+  
 {% endblock %}

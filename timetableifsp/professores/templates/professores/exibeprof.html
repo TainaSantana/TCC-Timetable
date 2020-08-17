@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Professor {% endblock %}
+
+{% block content %}
+    
+        <h2 class="mt-5">Professor(a): {{ professor.nome }} </h2>
+        <h5>Matrícula: {{ professor.matricula }}</h5>
+        <h5>E-mail: {{ professor.email }}</h5>
+        <h5>Jornada semanal: {{  professor.jornada_sem }}</h5>
+        <h5>Máximo de aulas por dia: {{ professor.max_aulas_dia }}</h5>
+        <h5>Status: {{ professor.status }}</h5>
+        <h5>Cadastrado em: {{ professor.criado_em }}</h5>
+     
+
+{% endblock %}

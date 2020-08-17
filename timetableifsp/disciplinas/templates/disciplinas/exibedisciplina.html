@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Disciplina {% endblock %}
+
+{% block content %}
+    
+        <h2 class="mt-5">Disciplina: {{ disciplina.nome }} </h2>
+        <h5>Sigla: {{ disciplina.sigla }}</h5>
+        <h5>Carga Horária: {{ disciplina.carga_hor }}</h5>
+        <h5>Semestre: {{ disciplina.semestre }}</h5>
+        <h5>Total de aulas da disciplina: {{ disciplina.total_aulas }}</h5>
+        <h5>Quantidade de aulas semanais: {{ disciplina.aulas_semanais }}</h5>
+        <h5>Status: {{ disciplina.status }}</h5>
+        <h5>Cadastrado em: {{ disciplina.criado_em }}</h5>
+     
+
+{% endblock %}

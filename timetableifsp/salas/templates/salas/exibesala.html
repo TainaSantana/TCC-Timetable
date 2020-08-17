@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Sala {% endblock %}
+
+{% block content %}
+    
+        <h2 class="mt-5">Sala: {{ sala.nome }} </h2>
+        <h5>Bloco: {{ sala.bloco }}</h5>
+        <h5>Capacidade: {{ sala.capacidade }}</h5>
+        <h5>Tipo de laboratório: {{ sala.bloco }}</h5>
+        <h5>Status: {{ sala.status }}</h5>
+        <h5>Cadastrado em: {{ sala.criado_em }}</h5>
+     
+
+{% endblock %}

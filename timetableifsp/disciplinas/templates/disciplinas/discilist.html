@@ -1,5 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tela de cadastro de disciplinas</h1>
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Sigla</th>
+        <th scope="col">Semestre</th>
+        <th scope="col">Status</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    
+    {% for disciplina in disc_list %}
+    <tbody>
+    
+      <tr>
+        <th scope="row">{{ disciplina.nome }}</th>
+        <td>{{ disciplina.sigla }}</td>
+        <td>{{ disciplina.semestre }}</td>
+        <td>{{ disciplina.status }}</td>
+        <td><a href="editadisciplina/{{disciplina.id}}"><i class="fas fa-edit"></i></a> <a href="exibedisciplina/{{disciplina.id}}"><i class="fas fa-eye"></a></i> <a href="delete/{{disciplina.id}}" class="delete-btn"><i class="fas fa-trash-alt"></i></a> </td>
+        
+      </tr>
+    
+    
+    </tbody>
+    {% endfor %}
+    
+  </table>
+ 
+  
 {% endblock %}

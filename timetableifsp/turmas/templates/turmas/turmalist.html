@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tela de cadastro de turmas</h1>
+
+{% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Status</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    
+    {% for turmas in turmas_list %}
+    <tbody>
+    
+      <tr>
+        <th scope="row">{{ turmas.nome }}</th>
+        <td>{{ turmas.sala }}</td>
+        <td>{{ turmas.status }}</td>
+        <td><a href="editaturma/{{turmas.id}}"><i class="fas fa-edit"></i></a> <a href="exibeturma/{{turmas.id}}"><i class="fas fa-eye"></a></i> <a href="delete/{{turmas.id}}" class="delete-btn"><i class="fas fa-trash-alt"></i></a> </td>
+        
+      </tr>
+    
+    
+    </tbody>
+    {% endfor %}
+    
+  </table>
+ 
+  
 {% endblock %}
