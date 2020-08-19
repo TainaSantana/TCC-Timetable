@@ -4,6 +4,12 @@ from django.contrib import messages
 from .models import Disciplina
 from .forms import DisciplinaForm
 
+def search(request):
+    search = request.GET.get('search')
+
+    if search:
+        disciplinas = Disciplina.objects.filter(titulo__icontains=search)
+
 def discList(request):
     disc_list = Disciplina.objects.all()
     return render(request, 'disciplinas/discilist.html', {'disc_list': disc_list})

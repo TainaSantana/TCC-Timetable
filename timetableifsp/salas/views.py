@@ -4,9 +4,16 @@ from django.contrib import messages
 from .forms import SalaForm
 from .models import Sala
 
+ 
+
 def salaList(request):
-    salas_list = Sala.objects.all()
-    return render(request, 'salas/salalist.html', {'salas_list': salas_list})
+    search = request.GET.get('search')
+
+    if search:
+        salas = Sala.objects.filter(nome__icontains=search)
+    else:
+        salas_list = Sala.objects.all()
+        return render(request, 'salas/salalist.html', {'salas_list': salas_list})
 
 def exibeSala(request, id):
     sala = get_object_or_404(Sala, pk=id)

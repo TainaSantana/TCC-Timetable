@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
-{% block title %} Editando {{prof.nome}} {% endblock %}
+{% block title %} Editando {{professor.nome}} {% endblock %}
 
 
 {% block content %}
-    
-<h2 class="mt-5">Editando o(a) professor(a) {{prof.nome}}</h2>
-        
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Editando o(a) professor(a): {{ professor.nome }}</h1>
+</div>
+            
     <form method="POST">
         {% csrf_token %}               
          {{form|bootstrap}}
@@ -14,6 +15,6 @@
         <input type="submit" class="btn btn-success" value="Cadastrar Professor(a)">
                 
     </form>
-        
+        <br>
 
 {% endblock %}
